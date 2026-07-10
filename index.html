@@ -1,149 +1,2773 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Casio-Collection.ng</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Casio-Collection.ng</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#g-shock">G-Shock</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#baby-g">Baby-G</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#pro-trek">Pro Trek</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#edifice">Edifice</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#classic">Classic</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sports">Sports</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#vintage">Vintage</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#smart-outdoor">Smart Outdoor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Purchase-page.html">Buy Now</a>
-          </li>
-        </ul>
-      </div>
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Casio Collection | Timeless Precision</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#06080d;
+    --bg2:#10141d;
+    --card:#171c27;
+    --gold:#d4af37;
+    --gold-light:#f4df8b;
+    --white:#ffffff;
+    --text:#d7d7d7;
+    --muted:#8b94a7;
+    --shadow:0 20px 60px rgba(0,0,0,.45);
+    --radius:22px;
+    --transition:.45s ease;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
+    opacity:0;
+
+}
+
+/*=========================
+Scrollbar
+=========================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090909;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(var(--gold),#9b7d1c);
+
+    border-radius:20px;
+
+}
+
+/*=========================
+Progress Bar
+=========================*/
+
+#progressBar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:0%;
+
+    height:4px;
+
+    background:linear-gradient(90deg,var(--gold),#fff1b6);
+
+    z-index:5000;
+
+}
+
+/*=========================
+Navigation
+=========================*/
+
+nav{
+
+    position:fixed;
+
+    width:100%;
+
+    top:0;
+
+    left:0;
+
+    z-index:3000;
+
+    transition:.4s;
+
+    padding:18px 8%;
+
+}
+
+nav.scrolled{
+
+    background:rgba(6,8,13,.92);
+
+    backdrop-filter:blur(14px);
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+}
+
+.nav-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    font-size:1.7rem;
+
+    font-weight:800;
+
+    color:white;
+
+    text-decoration:none;
+
+    letter-spacing:1px;
+
+}
+
+.logo span{
+
+    color:var(--gold);
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+.nav-links a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    position:relative;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--gold);
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-7px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transition:.35s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.menu-btn{
+
+    display:none;
+
+    cursor:pointer;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.menu-btn span{
+
+    width:30px;
+
+    height:3px;
+
+    background:white;
+
+    border-radius:50px;
+
+}
+
+/*=========================
+Hero
+=========================*/
+
+.hero{
+
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    align-items:center;
+
+    padding:120px 8% 70px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+
+    height:700px;
+
+    background:radial-gradient(var(--gold),transparent 70%);
+
+    opacity:.08;
+
+    right:-250px;
+
+    top:-250px;
+
+    animation:rotateGlow 20s linear infinite;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    background:#2b66ff;
+
+    opacity:.05;
+
+    border-radius:50%;
+
+    bottom:-200px;
+
+    left:-200px;
+
+    filter:blur(60px);
+
+}
+
+.hero-text{
+
+    z-index:2;
+
+}
+
+.hero-subtitle{
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    margin-bottom:18px;
+
+    font-size:.9rem;
+
+}
+
+.hero h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:4rem;
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+
+}
+
+.hero p{
+
+    color:var(--text);
+
+    font-size:1.1rem;
+
+    line-height:1.8;
+
+    max-width:600px;
+
+    margin-bottom:40px;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    padding:16px 34px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.primary-btn{
+
+    background:var(--gold);
+
+    color:#111;
+
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 35px rgba(212,175,55,.35);
+
+}
+
+.secondary-btn{
+
+    border:2px solid var(--gold);
+
+    color:var(--gold);
+
+}
+
+.secondary-btn:hover{
+
+    background:var(--gold);
+
+    color:#111;
+
+}
+
+.hero-image{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.hero-image img{
+
+    width:min(90%,550px);
+
+    animation:floatWatch 5s ease-in-out infinite;
+
+    filter:drop-shadow(0 35px 45px rgba(0,0,0,.5));
+
+}
+
+/* Replace with your hero image */
+
+.hero-image img{
+
+    content:"";
+
+}
+
+/*=========================
+Section Titles
+=========================*/
+
+.section{
+
+    padding:90px 8%;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    font-size:.9rem;
+
+}
+
+.section-heading{
+
+    font-family:'Playfair Display',serif;
+
+    text-align:center;
+
+    font-size:2.8rem;
+
+    margin-bottom:20px;
+
+}
+
+.section-description{
+
+    max-width:750px;
+
+    margin:auto;
+
+    text-align:center;
+
+    color:var(--text);
+
+    line-height:1.8;
+
+    margin-bottom:70px;
+
+}
+
+/*=========================
+Search
+=========================*/
+
+.search-wrapper{
+
+    max-width:700px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.search-wrapper input{
+
+    width:100%;
+
+    padding:18px 22px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:60px;
+
+    background:var(--card);
+
+    color:white;
+
+    font-size:1rem;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+}
+
+.search-wrapper input:focus{
+
+    box-shadow:0 0 0 2px var(--gold);
+
+}
+
+.search-wrapper input::placeholder{
+
+    color:#8c94a7;
+
+}
+
+/*==================================================
+Continue in next response...
+DO NOT CLOSE THE STYLE TAG YET.
+==================================================*/
+
+/*=========================
+Collection Grid
+=========================*/
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:35px;
+
+}
+
+.watch-card{
+
+    position:relative;
+
+    background:rgba(23,28,39,.72);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    box-shadow:var(--shadow);
+
+}
+
+.watch-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:rgba(212,175,55,.45);
+
+    box-shadow:0 25px 55px rgba(0,0,0,.55);
+
+}
+
+.watch-image{
+
+    position:relative;
+
+    height:260px;
+
+    overflow:hidden;
+
+    background:linear-gradient(145deg,#0d1017,#1c2332);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.watch-image img{
+
+    width:78%;
+
+    transition:.6s;
+
+    object-fit:contain;
+
+}
+
+.watch-card:hover .watch-image img{
+
+    transform:scale(1.08) rotate(-2deg);
+
+}
+
+.watch-tag{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    padding:7px 14px;
+
+    border-radius:40px;
+
+}
+
+.watch-content{
+
+    padding:28px;
+
+}
+
+.watch-content h3{
+
+    font-size:1.35rem;
+
+    margin-bottom:10px;
+
+}
+
+.watch-model{
+
+    color:var(--gold);
+
+    font-size:.92rem;
+
+    margin-bottom:16px;
+
+    font-weight:600;
+
+}
+
+.watch-content p{
+
+    color:var(--text);
+
+    line-height:1.7;
+
+    font-size:.94rem;
+
+    margin-bottom:22px;
+
+}
+
+.learn-more{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    transition:.35s;
+
+}
+
+.watch-card:hover .learn-more{
+
+    transform:translateX(8px);
+
+}
+
+/*=========================
+Why Choose Casio
+=========================*/
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+}
+
+.feature{
+
+    background:var(--card);
+
+    border-radius:var(--radius);
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    transition:.45s;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.feature:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(212,175,55,.45);
+
+}
+
+.feature-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto auto 25px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2.2rem;
+
+    background:rgba(212,175,55,.12);
+
+    color:var(--gold);
+
+}
+
+.feature h3{
+
+    margin-bottom:18px;
+
+}
+
+.feature p{
+
+    color:var(--text);
+
+    line-height:1.8;
+
+}
+
+/*=========================
+Footer
+=========================*/
+
+footer{
+
+    background:#040507;
+
+    padding:80px 8% 35px;
+
+}
+
+.footer-content{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:50px;
+
+    margin-bottom:50px;
+
+}
+
+.footer-column h3{
+
+    margin-bottom:22px;
+
+    color:var(--gold);
+
+}
+
+.footer-column p{
+
+    color:var(--text);
+
+    line-height:1.8;
+
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:var(--text);
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.3s;
+
+}
+
+.footer-column a:hover{
+
+    color:var(--gold);
+
+    transform:translateX(5px);
+
+}
+
+.copyright{
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    padding-top:30px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+}
+
+/*=========================
+Back To Top
+=========================*/
+
+#topBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:58px;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-size:1.25rem;
+
+    cursor:pointer;
+
+    display:none;
+
+    transition:.35s;
+
+    z-index:2000;
+
+}
+
+#topBtn:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/*=========================
+Reveal Animation
+=========================*/
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:1s;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/*=========================
+Floating Background Shapes
+=========================*/
+
+.circle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(10px);
+
+    animation:floatCircle 12s linear infinite;
+
+    pointer-events:none;
+
+}
+
+.circle.one{
+
+    width:180px;
+
+    height:180px;
+
+    background:rgba(212,175,55,.06);
+
+    top:15%;
+
+    right:8%;
+
+}
+
+.circle.two{
+
+    width:120px;
+
+    height:120px;
+
+    background:rgba(66,133,244,.08);
+
+    left:5%;
+
+    bottom:20%;
+
+    animation-duration:18s;
+
+}
+
+.circle.three{
+
+    width:240px;
+
+    height:240px;
+
+    background:rgba(255,255,255,.02);
+
+    right:35%;
+
+    bottom:5%;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+    opacity:0;
+
+    transition:opacity .5s ease;
+
+}
+
+/*=========================
+Animations
+=========================*/
+
+@keyframes floatWatch{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-20px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes rotateGlow{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes floatCircle{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-35px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================
+Responsive
+=========================*/
+
+@media(max-width:1050px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.hero-text{
+
+order:2;
+
+}
+
+.hero-image{
+
+order:1;
+
+margin-bottom:60px;
+
+}
+
+.hero p{
+
+margin:auto auto 40px;
+
+}
+
+.hero-buttons{
+
+justify-content:center;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.nav-links{
+
+position:fixed;
+
+top:78px;
+
+right:-100%;
+
+width:270px;
+
+height:calc(100vh - 78px);
+
+background:#0d1118;
+
+flex-direction:column;
+
+padding:40px;
+
+gap:28px;
+
+transition:.4s;
+
+}
+
+.nav-links.active{
+
+right:0;
+
+}
+
+.menu-btn{
+
+display:flex;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.9rem;
+
+}
+
+.section-heading{
+
+font-size:2.1rem;
+
+}
+
+.hero{
+
+padding:120px 6% 60px;
+
+}
+
+.section{
+
+padding:80px 6%;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+.btn{
+
+width:100%;
+
+}
+
+.hero-buttons{
+
+flex-direction:column;
+
+}
+
+.watch-image{
+
+height:220px;
+
+}
+
+}
+
+.modal{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.82);
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+z-index:9999;
+
+backdrop-filter:blur(10px);
+
+}
+
+.modal.show{
+
+display:flex;
+
+animation:fadeIn .35s;
+
+}
+
+.modal-box{
+
+width:min(1050px,100%);
+
+background:#151a22;
+
+border-radius:22px;
+
+overflow:hidden;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+box-shadow:0 30px 70px rgba(0,0,0,.55);
+
+position:relative;
+
+}
+
+.modal-left{
+
+background:#0f131b;
+
+padding:35px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+}
+
+.modal-left img{
+
+width:85%;
+
+object-fit:contain;
+
+transition:.35s;
+
+}
+
+.modal-right{
+
+padding:45px;
+
+}
+
+.modal-right h2{
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+.modal-right h4{
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.modal-right p{
+
+line-height:1.8;
+
+color:var(--text);
+
+margin-bottom:25px;
+
+}
+
+.modal-right ul{
+
+padding-left:18px;
+
+color:var(--text);
+
+line-height:2;
+
+}
+
+.close-modal{
+
+position:absolute;
+
+top:18px;
+
+right:22px;
+
+font-size:2rem;
+
+cursor:pointer;
+
+color:white;
+
+z-index:5;
+
+}
+
+.carousel-controls{
+
+position:absolute;
+
+width:100%;
+
+display:flex;
+
+justify-content:space-between;
+
+padding:0 18px;
+
+}
+
+.carousel-controls button{
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+color:white;
+
+cursor:pointer;
+
+font-size:1.2rem;
+
+transition:.3s;
+
+}
+
+.carousel-controls button:hover{
+
+background:var(--gold);
+
+color:#111;
+
+}
+
+@media(max-width:850px){
+
+.modal-box{
+
+grid-template-columns:1fr;
+
+}
+
+.modal-right{
+
+padding:30px;
+
+}
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:scale(.95);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         Scroll Progress Bar
+    ========================== -->
+    <div id="progressBar"></div>
+
+    <!-- =========================
+         Navigation
+    ========================== -->
+    <nav id="navbar">
+
+        <div class="nav-container">
+
+            <a href="#" class="logo">
+                CASIO<span>.</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="#collections">Collections</a>
+                <a href="#why-casio">Why Casio</a>
+                
+
+            </div>
+
+            <div class="menu-btn" id="menuBtn">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </div>
+
+        </div>
+
     </nav>
 
-    <header
-      class="jumbotron jumbotron-fluid text-white text-center"
-      style="background-color: black"
-    >
-      <div class="container">
-        <h1 class="display-4">Explore our collection of Casio Watches</h1>
-        <p class="lead">
-          Find the perfect watch that suits your style and needs.
-        </p>
-      </div>
-    </header>
+    <!-- =========================
+         Hero Section
+    ========================== -->
 
-    <main class="container" ;>
-      <section id="g-shock" class="my-5">
-        <h2>G-Shock</h2>
-        <p>
-          Known for their toughness, G-Shock watches are designed to withstand
-          harsh conditions. They are popular among military personnel, outdoor
-          enthusiasts, and athletes. Features include shock resistance, water
-          resistance, and a rugged design.
-        </p>
-      </section>
-      <section id="baby-g" class="my-5">
-        <h2>Baby-G</h2>
-        <p>
-          Similar to G-Shock but designed for women, Baby-G watches offer
-          durability with a more stylish and compact design. Features include
-          shock resistance, water resistance, and vibrant colors.
-        </p>
-      </section>
-      <section id="pro-trek" class="my-5">
-        <h2>Pro Trek</h2>
-        <p>
-          These watches are geared towards outdoor adventurers. They often
-          include features like altimeters, barometers, and compasses, making
-          them perfect for hiking, camping, and exploring.
-        </p>
-      </section>
-      <section id="edifice" class="my-5">
-        <h2>Edifice</h2>
-        <p>
-          Casio's Edifice line focuses on a sophisticated, professional look
-          with features like chronographs, world time, and sleek designs. Ideal
-          for business and formal settings.
-        </p>
-      </section>
-      <section id="classic" class="my-5">
-        <h2>Casio Classic</h2>
-        <p>
-          These are simple, reliable watches that often come with basic features
-          like alarms, stopwatches, and LED lights. Known for their
-          affordability and classic design, perfect for everyday wear.
-        </p>
-      </section>
-      <section id="sports" class="my-5">
-        <h2>Casio Sports</h2>
-        <p>
-          Designed for athletes, these watches often include features like
-          timers, lap counters, and water resistance, helping you track your
-          performance and achieve your fitness goals.
-        </p>
-      </section>
-      <section id="vintage" class="my-5">
-        <h2>Casio Vintage</h2>
-        <p>
-          Featuring retro designs, these watches are inspired by Casio's classic
-          models from the past. Perfect for those who appreciate a nostalgic
-          touch with modern functionality.
-        </p>
-      </section>
-      <section id="smart-outdoor" class="my-5">
-        <h2>Smart Outdoor Watch</h2>
-        <p>
-          Casio's smartwatches, often equipped with Android Wear, offer advanced
-          features for outdoor activities, including GPS, fitness tracking, and
-          weather information.
-        </p>
-      </section>
-    </main>
+    <section class="hero">
 
-    <footer class="bg-dark text-white text-center py-3">
-      <p>&copy; 2024 Casio-Collection.ng. All rights reserved.</p>
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+
+        <div class="hero-text reveal">
+
+            <p class="hero-subtitle">
+                Timeless Precision
+            </p>
+
+            <h1>
+                Discover Legendary
+                <br>
+                Casio Watches
+            </h1>
+
+            <p>
+
+                Explore one of the world's most iconic watch brands.
+                From the rugged toughness of G-Shock to the nostalgic
+                charm of the Vintage series, find a timepiece built
+                for your lifestyle.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#collections" class="btn primary-btn">
+                    Explore Collection
+                </a>
+
+          
+
+            </div>
+
+        </div>
+
+        <div class="hero-image reveal">
+
+            <!-- Replace with your hero image -->
+
+            <img
+                src="images/casiohero.avif"
+                alt="Casio Hero Watch">
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+         Collections
+    ========================== -->
+
+    <section class="section reveal" id="collections">
+
+        <p class="section-title">
+
+            Collections
+
+        </p>
+
+        <h2 class="section-heading">
+
+            Explore Every Collection
+
+        </h2>
+
+        <p class="section-description">
+
+            Every Casio collection is crafted with a unique personality—
+            whether you seek military-grade durability, timeless elegance,
+            retro nostalgia or cutting-edge outdoor technology.
+
+        </p>
+
+        <!-- Search -->
+
+        <div class="search-wrapper">
+
+            <input
+
+                id="searchInput"
+
+                type="text"
+
+                placeholder="Search collections...">
+
+        </div>
+
+        <br><br><br>
+
+        <div class="collection-grid">
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+
+                 data-watch="gshock">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+
+                        Toughness
+
+                    </span>
+
+                    <img
+
+                    src="images/gshock3.jpg"
+
+                    alt="G Shock">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+
+                        G-Shock
+
+                    </h3>
+
+                   
+
+                    <p>
+
+                        Built for extreme environments with unmatched
+                        shock resistance and reliability.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+
+                 data-watch="babyg">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+
+                        Stylish
+
+                    </span>
+
+                    <img
+
+                    src="images/babyg.webp"
+
+                    alt="Baby G">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+
+                        Baby-G
+
+                    </h3>
+
+                    
+                    <p>
+
+                        Vibrant, durable and stylish watches designed
+                        for active everyday lifestyles.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+
+                 data-watch="protrek">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+
+                        Outdoor
+
+                    </span>
+
+                    <img
+
+                    src="images/ptrtrek.webp"
+
+                    alt="Pro Trek">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+
+                        Pro Trek
+
+                    </h3>
+
+                    
+                    <p>
+
+                        Equipped with navigation tools for hikers,
+                        campers and explorers.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+
+                 data-watch="edifice">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+
+                        Premium
+
+                    </span>
+
+                    <img
+
+                    src="images/edifice.jpg"
+
+                    alt="Edifice">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+
+                        Edifice
+
+                    </h3>
+
+                    
+                    <p>
+
+                        Sophisticated timepieces blending motorsport
+                        inspiration with smart technology.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+                        <!-- ===================== -->
+
+            <div class="watch-card"
+                 data-watch="classic">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+                        Iconic
+                    </span>
+
+                    <img
+                    src="images/classics.jpg"
+                    alt="Casio Classic">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+                        Casio Classic
+                    </h3>
+
+                   
+                    <p>
+
+                        The legendary everyday watch loved worldwide
+                        for its simplicity, reliability and timeless
+                        design.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================== -->
+
+           
+            <div class="watch-card"
+                 data-watch="sports">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+                        Performance
+                    </span>
+
+                    <img
+                    src="images/sport.avif"
+                    alt="Sports">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+                        Sports
+                    </h3>
+
+                   
+                    <p>
+
+                        Designed for active lifestyles with timers,
+                        stopwatches and dependable water resistance.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+                 data-watch="vintage">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+                        Retro
+                    </span>
+
+                    <img
+                    src="images/vintage1.webp"
+                    alt="Vintage">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+                        Vintage
+                    </h3>
+
+                    
+                    <p>
+
+                        Retro-inspired digital watches that continue
+                        to define timeless fashion decades later.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ===================== -->
+
+            <div class="watch-card"
+                 data-watch="smart">
+
+                <div class="watch-image">
+
+                    <span class="watch-tag">
+                        Smart
+                    </span>
+
+                    <img
+                    src="images/smart2.webp"
+                    alt="Smart Outdoor">
+
+                </div>
+
+                <div class="watch-content">
+
+                    <h3>
+                        Smart Outdoor
+                    </h3>
+
+                    
+                    <p>
+
+                        Built for adventure with GPS navigation,
+                        activity tracking and rugged outdoor features.
+
+                    </p>
+
+                    <div class="learn-more">
+
+                        Learn More →
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    
+    <!-- =========================
+         Why Choose Casio
+    ========================== -->
+
+    <section class="section reveal" id="why-casio">
+
+        <p class="section-title">
+
+            Why Choose Casio
+
+        </p>
+
+        <h2 class="section-heading">
+
+            Built for Every Lifestyle
+
+        </h2>
+
+        <div class="features">
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    ⌚
+
+                </div>
+
+                <h3>
+
+                    Legendary Durability
+
+                </h3>
+
+                <p>
+
+                    Shock-resistant construction and dependable
+                    engineering trusted worldwide.
+
+                </p>
+
+            </div>
+
+            
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    🌍
+
+                </div>
+
+                <h3>
+
+                    Global Reputation
+
+                </h3>
+
+                <p>
+
+                    Millions of people rely on Casio watches every day,
+                    from professionals to outdoor adventurers.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+        <div class="copyright">
+
+            © 2026 Casio Collection.
+            Designed & Developed by
+            <strong>Gbenga Ademuyiwa</strong>
+
+        </div>
+
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="scripts.js"></script>
-  </body>
+    <!-- Back To Top -->
+
+    <button id="topBtn">
+
+        ↑
+
+    </button>
+
+    <!-- =========================
+         Premium Modal
+    ========================== -->
+
+    <div class="modal" id="watchModal">
+
+    <div class="modal-box">
+
+        <span class="close-modal" id="closeModal">&times;</span>
+
+        <div class="modal-left">
+
+            <img id="modalImage"
+                 src=""
+                 alt="Watch">
+
+            <div class="carousel-controls">
+
+                <button id="prevImage">
+                    ❮
+                </button>
+
+                <button id="nextImage">
+                    ❯
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="modal-right">
+
+            <h2 id="modalTitle"></h2>
+
+            <h4 id="modalModel"></h4>
+
+            <p id="modalDescription"></p>
+
+            <ul id="modalSpecs"></ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script>
+      /*====================================================
+    WATCH DATABASE
+    Replace the image paths with your own images.
+=====================================================*/
+
+const watches = {
+
+    gshock:{
+
+        title:"G-Shock",
+
+
+        description:
+        "Built to survive the toughest conditions, the G-Shock collection has become the benchmark for rugged watches. Combining shock resistance with modern styling, it is trusted by military personnel, athletes and outdoor enthusiasts around the world.",
+
+        images:[
+            "images/gshock3.jpg",
+            "images/gshock1.avif",
+            
+        ],
+
+        specs:[
+            "Shock Resistant",
+            "200M Water Resistant",
+            "World Time",
+            "LED Backlight",
+            "Stopwatch & Countdown Timer",
+            "Carbon Core Guard Structure"
+        ]
+
+    },
+
+    babyg:{
+
+        title:"Baby-G",
+
+
+        description:
+        "Baby-G blends the legendary toughness of G-Shock with a slimmer, more fashionable design. Bright colours and dependable durability make it perfect for everyday wear.",
+
+        images:[
+            "images/babyg.webp",
+            "images/babyg2.webp",
+        ],
+
+        specs:[
+            "Shock Resistant",
+            "100M Water Resistant",
+            "LED Light",
+            "World Time",
+            "Daily Alarm",
+            "Stopwatch"
+        ]
+
+    },
+
+    protrek:{
+
+        title:"Pro Trek",
+
+
+        description:
+        "Engineered for outdoor adventures, Pro Trek watches are equipped with advanced sensors that help hikers, campers and explorers navigate with confidence.",
+
+        images:[
+            "images/ptrtrek.webp",
+            "images/protrek3.avif",
+        ],
+
+        specs:[
+            "Triple Sensor",
+            "Altimeter",
+            "Compass",
+            "Barometer",
+            "Solar Charging",
+            "200M Water Resistance"
+        ]
+
+    },
+
+    edifice:{
+
+        title:"Edifice",
+
+
+        description:
+        "Inspired by motorsport engineering, the Edifice collection combines premium materials, Bluetooth connectivity and sophisticated styling.",
+
+        images:[
+            "images/edifice.jpg",
+            "images/edifice1.avif",
+        ],
+
+        specs:[
+            "Bluetooth",
+            "Solar Powered",
+            "Chronograph",
+            "World Time",
+            "Sapphire Crystal",
+            "100M Water Resistant"
+        ]
+
+    },
+
+    classic:{
+
+        title:"Casio Classic",
+
+        
+
+        description:
+        "An icon that has stood the test of time. Lightweight, affordable and incredibly reliable, the F-91W remains one of the world's most recognised digital watches.",
+
+        images:[
+            "images/classics.jpg",
+            "images/classic1.avif",
+        ],
+
+        specs:[
+            "Daily Alarm",
+            "LED Light",
+            "Stopwatch",
+            "7-Year Battery",
+            "Lightweight Design",
+            "Water Resistant"
+        ]
+
+    },
+
+    sports:{
+
+        title:"Sports",
+
+       
+
+        description:
+        "Designed for active lifestyles with accurate timing functions and dependable durability for training and everyday fitness.",
+
+        images:[
+            "images/sport.avif",
+            "images/sport1.jfif",
+
+        ],
+
+        specs:[
+            "100M Water Resistance",
+            "Dual Time",
+            "Stopwatch",
+            "Lap Memory",
+            "Countdown Timer",
+            "LED Light"
+        ]
+
+    },
+
+    vintage:{
+
+        title:"Vintage",
+
+       
+
+        description:
+        "Retro styling meets modern reliability. Vintage Casio watches continue to be fashion icons across generations.",
+
+        images:[
+            "images/vintage1.webp",
+            "images/vintage.webp",
+            
+        ],
+
+        specs:[
+            "Electro Luminescent Display",
+            "Alarm",
+            "Stopwatch",
+            "Adjustable Clasp",
+            "Classic Digital Display",
+            "Long Battery Life"
+        ]
+
+    },
+
+    smart:{
+
+        title:"Smart Outdoor",
+
+      
+
+        description:
+        "Combining rugged durability with smart functionality, the Smart Outdoor range delivers GPS navigation, maps and activity tracking for adventurers.",
+
+        images:[
+            "images/smart2.webp",
+            "images/smart1.jpeg",
+            "images/smart3.jpg"
+        ],
+
+        specs:[
+            "GPS Navigation",
+            "Offline Maps",
+            "Activity Tracking",
+            "Compass",
+            "Water Resistant",
+            "Military Standard Durability"
+        ]
+
+    }
+
+};
+
+/*====================================================
+    DOM ELEMENTS
+=====================================================*/
+
+const cards=document.querySelectorAll(".watch-card");
+
+const modal=document.getElementById("watchModal");
+
+const modalImage=document.getElementById("modalImage");
+
+const modalTitle=document.getElementById("modalTitle");
+
+const modalModel=document.getElementById("modalModel");
+
+const modalDescription=document.getElementById("modalDescription");
+
+const modalSpecs=document.getElementById("modalSpecs");
+
+const closeModal=document.getElementById("closeModal");
+
+const nextImage=document.getElementById("nextImage");
+
+const prevImage=document.getElementById("prevImage");
+
+const searchInput=document.getElementById("searchInput");
+
+/*====================================================
+    MODAL VARIABLES
+=====================================================*/
+
+let currentWatch=null;
+
+let currentImage=0;
+
+let autoSlide;
+
+/*====================================================
+    LOAD MODAL
+=====================================================*/
+
+function loadWatch(key){
+
+    currentWatch=watches[key];
+
+    currentImage=0;
+
+    modalTitle.textContent=currentWatch.title;
+
+    modalModel.textContent=currentWatch.model;
+
+    modalDescription.textContent=currentWatch.description;
+
+    modalImage.src=currentWatch.images[currentImage];
+
+    modalSpecs.innerHTML="";
+
+    currentWatch.specs.forEach(spec=>{
+
+        const li=document.createElement("li");
+
+        li.textContent=spec;
+
+        modalSpecs.appendChild(li);
+
+    });
+
+}
+
+/*====================================================
+    CAROUSEL
+=====================================================*/
+
+function updateImage(){
+
+    modalImage.style.opacity="0";
+
+    modalImage.style.transform="scale(.95)";
+
+    setTimeout(()=>{
+
+        modalImage.src=currentWatch.images[currentImage];
+
+        modalImage.style.opacity="1";
+
+        modalImage.style.transform="scale(1)";
+
+    },180);
+
+}
+
+function nextSlide(){
+
+    currentImage++;
+
+    if(currentImage>=currentWatch.images.length){
+
+        currentImage=0;
+
+    }
+
+    updateImage();
+
+}
+
+function previousSlide(){
+
+    currentImage--;
+
+    if(currentImage<0){
+
+        currentImage=currentWatch.images.length-1;
+
+    }
+
+    updateImage();
+
+}
+
+nextImage.addEventListener("click",nextSlide);
+
+prevImage.addEventListener("click",previousSlide);
+
+/*====================================================
+    AUTO SLIDE
+=====================================================*/
+
+function startCarousel(){
+
+    stopCarousel();
+
+    autoSlide=setInterval(nextSlide,5000);
+
+}
+
+function stopCarousel(){
+
+    clearInterval(autoSlide);
+
+}
+
+/*====================================================
+    OPEN MODAL
+=====================================================*/
+
+cards.forEach(card=>{
+
+    card.addEventListener("click",()=>{
+
+        const watch=card.dataset.watch;
+
+        loadWatch(watch);
+
+        modal.classList.add("show");
+
+        document.body.style.overflow="hidden";
+
+        startCarousel();
+
+    });
+
+});
+
+/*====================================================
+    CLOSE MODAL
+=====================================================*/
+
+function hideModal(){
+
+    modal.classList.remove("show");
+
+    document.body.style.overflow="auto";
+
+    stopCarousel();
+
+}
+
+closeModal.addEventListener("click",hideModal);
+
+/*====================================================
+    CLICK OUTSIDE MODAL
+=====================================================*/
+
+modal.addEventListener("click",(e)=>{
+
+    if(e.target===modal){
+
+        hideModal();
+
+    }
+
+});
+
+/*====================================================
+    KEYBOARD SUPPORT
+=====================================================*/
+
+document.addEventListener("keydown",(e)=>{
+
+    if(!modal.classList.contains("show")) return;
+
+    switch(e.key){
+
+        case "Escape":
+
+            hideModal();
+
+            break;
+
+        case "ArrowRight":
+
+            nextSlide();
+
+            break;
+
+        case "ArrowLeft":
+
+            previousSlide();
+
+            break;
+
+    }
+
+});
+
+/*====================================================
+    TOUCH SWIPE SUPPORT
+=====================================================*/
+
+let touchStartX=0;
+
+let touchEndX=0;
+
+modalImage.addEventListener("touchstart",(e)=>{
+
+    touchStartX=e.changedTouches[0].screenX;
+
+});
+
+modalImage.addEventListener("touchend",(e)=>{
+
+    touchEndX=e.changedTouches[0].screenX;
+
+    if(Math.abs(touchStartX-touchEndX)<50) return;
+
+    if(touchStartX>touchEndX){
+
+        nextSlide();
+
+    }else{
+
+        previousSlide();
+
+    }
+
+});
+
+/*====================================================
+    SEARCH
+=====================================================*/
+
+if (searchInput) {
+
+    searchInput.addEventListener("input", function () {
+
+        const search = this.value.trim().toLowerCase();
+
+        document.querySelectorAll(".watch-card").forEach(card => {
+
+            const title =
+                card.querySelector("h3")?.textContent.toLowerCase() || "";
+
+            const model =
+                card.querySelector(".watch-model")?.textContent.toLowerCase() || "";
+
+            const description =
+                card.querySelector("p")?.textContent.toLowerCase() || "";
+
+            const visible =
+                title.includes(search) ||
+                model.includes(search) ||
+                description.includes(search);
+
+            card.style.display = visible ? "" : "none";
+
+        });
+
+    });
+
+}
+/*====================================================
+    MOBILE MENU
+=====================================================*/
+
+const menuBtn=document.getElementById("menuBtn");
+
+const navLinks=document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navLinks.classList.remove("active");
+
+    });
+
+});
+
+/*====================================================
+    STICKY NAVBAR
+=====================================================*/
+
+const navbar=document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>80){
+
+        navbar.classList.add("scrolled");
+
+    }else{
+
+        navbar.classList.remove("scrolled");
+
+    }
+
+});
+
+/*====================================================
+    SCROLL PROGRESS BAR
+=====================================================*/
+
+const progressBar=document.getElementById("progressBar");
+
+window.addEventListener("scroll",()=>{
+
+    const scrollTop=window.scrollY;
+
+    const docHeight=
+        document.documentElement.scrollHeight
+        -
+        document.documentElement.clientHeight;
+
+    const progress=(scrollTop/docHeight)*100;
+
+    progressBar.style.width=progress+"%";
+
+});
+
+/*====================================================
+    REVEAL ANIMATIONS
+=====================================================*/
+
+const revealElements=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.15
+}
+
+);
+
+revealElements.forEach(element=>{
+
+    observer.observe(element);
+
+});
+
+/*====================================================
+    BACK TO TOP BUTTON
+=====================================================*/
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>500){
+
+        topBtn.style.display="flex";
+
+        topBtn.style.alignItems="center";
+
+        topBtn.style.justifyContent="center";
+
+    }
+
+    else{
+
+        topBtn.style.display="none";
+
+    }
+
+});
+
+topBtn.addEventListener("click",()=>{
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
+
+/*====================================================
+    IMAGE LOADING EFFECT
+=====================================================*/
+
+document.querySelectorAll("img").forEach(img=>{
+
+    img.addEventListener("load",()=>{
+
+        img.style.opacity="1";
+
+    });
+
+});
+
+/*====================================================
+    INITIAL HERO ANIMATION
+=====================================================*/
+
+window.addEventListener("load",()=>{
+
+    document.body.style.opacity="1";
+
+    document.body.style.transition="opacity .8s ease";
+
+});
+
+/*====================================================
+    OPTIONAL:
+    PRELOAD MODAL IMAGES
+=====================================================*/
+
+Object.values(watches).forEach(watch=>{
+
+    watch.images.forEach(src=>{
+
+        const image=new Image();
+
+        image.src=src;
+
+    });
+
+});
+
+/*====================================================
+    SMALL SAFETY CHECK
+=====================================================*/
+
+if(cards.length===0){
+
+    console.warn(
+        "No watch cards were found."
+    );
+
+}
+
+/*====================================================
+    CONSOLE SIGNATURE
+=====================================================*/
+
+console.log(
+
+`%cCasio Collection
+Built with HTML, CSS & JavaScript`,
+
+"color:#d4af37;font-size:14px;font-weight:bold;"
+
+);
+
+</script>
+
+</body>
 </html>
