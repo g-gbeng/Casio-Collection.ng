@@ -48,7 +48,7 @@ body{
     color:var(--white);
     font-family:'Montserrat',sans-serif;
     overflow-x:hidden;
-    opacity:0;
+    opacity:1;
 
 }
 
@@ -437,11 +437,7 @@ Hero
 }
 /* Replace with your hero image */
 
-.hero-image img{
 
-    content:"";
-
-}
 
 /*=========================
 Section Titles
@@ -2723,14 +2719,17 @@ document.querySelectorAll("img").forEach(img=>{
     INITIAL HERO ANIMATION
 =====================================================*/
 
+
 window.addEventListener("load",()=>{
 
+    document.body.style.transition="opacity .8s ease";
     document.body.style.opacity="1";
 
-    document.body.style.transition="opacity .8s ease";
+    // Force the hero to reveal immediately
+    document.querySelector(".hero-text")?.classList.add("active");
+    document.querySelector(".hero-image")?.classList.add("active");
 
 });
-
 /*====================================================
     OPTIONAL:
     PRELOAD MODAL IMAGES
